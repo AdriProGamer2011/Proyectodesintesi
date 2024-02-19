@@ -1,0 +1,436 @@
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+.fondo {
+    background-color: white(255, 236, 236);
+    text-align: center;
+}
+
+body{
+    padding: 0%;
+   }
+
+
+
+.registrate{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-bottom: -35px;
+}
+
+
+.item-1 {
+    position: relative;
+    float: left;
+    color:black;
+    padding: 1em;
+    z-index: 1;
+    font: condensed 120% sans-serif;
+    
+
+  }
+  
+.subitem-1{
+    z-index: 9999999999999999;    
+    padding: 1em;
+    background-color: white;
+   
+}
+
+.submenu-1 { display: none;}
+  
+  
+  #menu-arriba {
+    position: relative;
+    z-index: 9999999999999999999;
+    font-size: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    display: inline-block;
+    left: 424px;
+    margin-bottom: -10px;
+    
+ 
+  }
+  
+  #menu-arriba:after {
+    content: "";
+    display: table;
+    clear: both;
+    border: thin solid black;
+    font-size: 10px;
+  }
+  
+    a {
+    text-decoration: none;
+    color: #000;
+    
+    }
+  
+
+  .item-1:hover > .submenu-1 {
+    position: absolute;
+    display: block;
+    background-color: white;
+    font-size: 10px;
+    right: 1px;
+
+  }
+
+  #menu-arriba:hover .item-1:hover{
+    background-color: rgb(167, 167, 167);
+    border: thin solid gray;
+    font-size: 10px;
+  }
+
+  .subitem-1:hover{
+    background-color: rgb(167, 167, 167);
+    border: thin solid gray;
+    font-size: 10px;
+    
+  }
+
+.item-1:hover .submenu-1 {
+    font: bold 90% monospace;
+    z-index: 99999999999999999;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 100%;
+    margin-left: 30px;
+    margin-right: 30px;
+    font-size: 10px;
+   background-color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.item {
+    position: relative;
+    float: left;
+    color:white;
+    padding: 1em;
+    z-index: 1;
+    font: condensed 120% sans-serif;
+  }
+  
+.subitem{
+    background-color: white; 
+    z-index: 9999999999;    
+    padding: 1em;
+   
+}
+
+.submenu { display: none;}
+  
+  
+  #menu {
+    position: sticky;
+    z-index: 9999999999;
+    font-size: 0.99em;
+    background-color: #088484;
+    position: sticky;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-color: white;
+  }
+
+
+
+  
+  #menu:after {
+    content: "";
+    display: table;
+    clear: both;
+    border: thin solid black;
+  }
+  
+ a {
+ text-decoration: none;
+ color: #000;
+ }
+  
+
+  .item:hover > .submenu {
+    position: absolute;
+    display: block;
+    width: auto;
+    background-color: white;
+    
+  }
+
+  #menu:hover .item:hover{
+    background-color: rgb(167, 167, 167);
+    border: thin solid gray;
+  }
+
+  .subitem:hover{
+    background-color: rgb(167, 167, 167);
+    border: thin solid gray;
+
+  }
+
+.item:hover .submenu {
+    font: bold 90% monospace;
+    z-index: 99999999999;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 100%;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.caja-mercedes{
+    margin-right: 30px;
+    margin-left: 30px;
+}
+
+.caja-redbull{
+    margin-right: 30px;
+    margin-left: 30px;
+}
+
+.caja-ferrari{
+    margin-right: 30px;
+    margin-left: 30px;
+}
+.caja-mclaren{
+    margin-right: 30px;
+    margin-left: 30px;
+}
+.caja-alfaromeo{
+    margin-right: 30px;
+    margin-left: 30px;
+}
+.caja-astonmartin{
+    margin-right: 30px;
+    margin-left: 30px;
+}
+.caja-alpine{
+    margin-right: 30px;
+    margin-left: 30px;
+}
+.caja-alphatauri{
+    margin-right: 30px;
+    margin-left: 30px;
+}
+.caja-williams{
+    margin-right: 30px;
+    margin-left: 30px;
+}
+
+
+
+.Comprar-por-equipos{
+    padding-top: 3%;
+    padding-bottom: 1%;
+    text-align: right 39%;
+    font-style: oblique;
+    font: oblique bold 120% cursive;
+ 
+}
+
+
+.caja-equipos {
+    border: 0.2em solid white;
+    border-bottom-left-radius: 1em;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
+    background-color: white;
+    text-align: 1em;
+    padding: 1em;
+}
+
+.caja-equipos ul {
+    display: flex;
+    align-items: center;
+justify-content: center;
+}
+
+.caja-equipos li { 
+    display: inline-block; text-decoration:  none;
+}
+
+
+
+
+
+
+
+.end-of-season{
+    position: relative;
+    height: auto;        
+    -ms-interpolation-mode: bicubic;
+    display: inline-block;
+    vertical-align: middle;
+
+}
+
+.texto-popular{
+    position: relative;
+    font-size: 3em;
+    padding-bottom: 3%;
+    right: 390px;
+    font-weight: bold;
+}
+
+.texto-departamento{
+    position: relative;
+    font-size: 3em;
+    padding-bottom: 3%;
+    right: 390px;
+    font-weight: bold;
+}
+
+.Popular-publicidad{
+    height: auto;        
+    -ms-interpolation-mode: bicubic;
+    display: inline-block;
+    vertical-align: middle;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.Ultimo-publicidad {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}
+
+.Ultimo-publicidad-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.libro-publicidad {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+ 
+}
+
+
+.logos {
+    width: 5em;
+}
+
+
+.gorros {
+    width: 1343px;
+}
+
+
+
+#Logos-pilotos {
+    margin-top: -250px;
+}
+
+
+.Comprar-por-pilotos{
+    position: relative;
+    font-size: 3em;
+    padding-top: 19%;
+    padding-bottom: 2%;
+    right: 390px;
+    font-weight: bold;
+}
+
+
+.caja-pilotos {
+    text-align: 1em;
+    padding: 1em;
+}
+
+.caja-pilotos ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.caja-pilotos li { 
+    display: inline-block; text-decoration:  none;
+}
+
+.logos-pilotos {
+    width: 13.2em;
+}
+
+.contenido {
+    padding-left: 100px;
+    padding-right:  100px;
+    padding-top: 50px;
+    background-color: rgb(244, 245, 245);
+    font-size: 1.25em;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: grid;
+    text-align: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+}
+
+.contenido .item-p {
+    color: black;
+    width: 300px;
+    margin: 10px;
+    padding: 10px;
+    text-align: justify;
+    font-size: 1em;
+}
+
+.huevos {
+    position: relative;
+    right: 36px;
+}
+
+.huevos-insta {
+    position: relative;
+    left: 830px;
+}
+
+.huevos-twitter {
+    position: relative;
+    left: 470px;
+}
