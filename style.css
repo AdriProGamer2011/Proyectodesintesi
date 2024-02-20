@@ -1,114 +1,163 @@
 
-* {
-    margin: 0;
-    box-sizing: border-box;
-    z-index: 1;
-}
-
-.fondo {
-    background-color: white(255, 236, 236);
-    text-align: center;
-}
-
-body{
-    padding: 0%;
-   }
 
 
 
-.registrate{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    margin-bottom: -35px;
-}
 
 
-.item-1 {
-    position: relative;
-    float: left;
-    color:black;
-    padding: 1em;
-    z-index: 1;
-    font: condensed 120% sans-serif;
-    
 
-  }
-  
-.subitem-1{
-    z-index: 9999999999999999;    
-    padding: 1em;
-    background-color: white;
+
+
+
+
    
-}
 
-.submenu-1 { display: none;}
-  
+
+   @import url("https://fonts.googleapis.com/css?family=Roboto:500,600");
+   @import url("https://use.fontawesome.com/releases/v6.5.1/css/all.css");
+   
+   button {
+       outline: 0;
+       background: #5380F7;
+       color: white;
+       display: inline-flex;
+       align-items: center;
+       justify-content: space-between;
+       min-width: 260px;
+       border: 0;
+       border-radius: 4px;
+       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+       box-sizing: border-box;
+       padding: 16px 20x;
+       font-family: "Roboto", sans-serif;
+       font-size: 12px;
+       font-weight: 600;
+       letter-spacing: 1.2px;
+       text-transform: uppercase;
+       cursor: pointer;
+       position: relative;
+   }
+   
+   .btn i {
+       font-size: 1.2em;
+       border-radius: 100%;
+       animation: ripple 0.6s linear infinite;
+   }
+   
+   @keyframes ripple {
+       0% {
+           box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.1);
+           box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.1);
+           box-shadow: 0 0 0 40px rgba(255, 255, 255, 0.1);
+           box-shadow: 0 0 0 60px rgba(255, 255, 255, 0.1);
+       }
+   
+       100% {
+           box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.1);
+           box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.1);
+           box-shadow: 0 0 0 40px rgba(255, 255, 255, 0.1);
+           box-shadow: 0 0 0 60px rgba(255, 255, 255, 0.1);
+           box-shadow: 0 0 0 80px rgba(255, 255, 255, 0.1);
+       }
+   }
+   
+   .dropdown {
+       position: absolute;
+       width: 100%;
+       background: white;
+       top: 100%;
+       left: 0;
+       padding: 0;
+       margin: 0;
+       list-style: none;
+       border-radius: 4px;
+       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+       text-align: left;
+       transition: 0.3 ease;
+   }
+   
+   .dropdown::before {
+       content: "";
+       position: absolute;
+       top: -6px;
+       left: 20px;
+       width: 0;
+       height: 0;
+       box-shadow: 2px -2px 6px #0000000d;
+       border-top: 6px solid #FFFFFF;
+       border-right: 6px solid #FFFFFF;
+       border-bottom: 6px solid transparent;
+       border-left: 6px solid transparent;
+       transform: rotate(-45deg);
+   }
+   
+   li {
+       background: #FFFFFF;
+       color: #666;
+       padding: 0 20px;
+       margin: 0 4px;
+   }
+   
+   li.active {
+       color: #5380F7
+   }
+   
+   a {
+       display: block;
+       border-bottom: 1px solid #0000000d;
+       padding: 16px 0;
+       color: inherit;
+       font-size: 10px;
+       font-weight: 500;
+       text-decoration: none;
+   }
+   
+   .dropdown {
+       opacity: 0;
+       visibility: hidden;
+   }
+   
+   button:focus .dropdown,
+   button:active .dropdown {
+       transform: translate(0, 10px);
+       opacity: 1;
+       visibility: visible;
+   
+   }
+   
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
   #menu-arriba {
     position: relative;
-    z-index: 9999999999999999999;
-    font-size: 10px;
+    z-index: 99999999999999999999;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    display: inline-block;
-    left: 424px;
-    margin-bottom: -10px;
-    
- 
+    font: small-caps 400%/200% serif;
+    background-color: 088484;
+    border: white 1px solid;
   }
   
-  #menu-arriba:after {
-    content: "";
-    display: table;
-    clear: both;
-    border: thin solid black;
-    font-size: 10px;
-  }
-  
-    a {
-    text-decoration: none;
-    color: #000;
-    
-    }
-  
-
-  .item-1:hover > .submenu-1 {
-    position: absolute;
-    display: block;
-    background-color: white;
-    font-size: 10px;
-    right: 1px;
-
-  }
-
-  #menu-arriba:hover .item-1:hover{
-    background-color: rgb(167, 167, 167);
-    border: thin solid gray;
-    font-size: 10px;
-  }
-
-  .subitem-1:hover{
-    background-color: rgb(167, 167, 167);
-    border: thin solid gray;
-    font-size: 10px;
-    
-  }
-
-.item-1:hover .submenu-1 {
-    font: bold 90% monospace;
-    z-index: 99999999999999999;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    width: 100%;
-    margin-left: 30px;
-    margin-right: 30px;
-    font-size: 10px;
-   background-color: white;
-}
-
-
-
-
 
 
 
@@ -135,6 +184,7 @@ body{
     padding: 1em;
     z-index: 1;
     font: condensed 120% sans-serif;
+    
   }
   
 .subitem{
@@ -157,7 +207,7 @@ body{
     bottom: 0;
     left: 0;
     right: 0;
-    border-color: white;
+    border: white 1px solid;
   }
 
 
@@ -172,7 +222,8 @@ body{
   
  a {
  text-decoration: none;
- color: #000;
+ color: black;
+ 
  }
   
 
@@ -185,14 +236,11 @@ body{
   }
 
   #menu:hover .item:hover{
-    background-color: rgb(167, 167, 167);
-    border: thin solid gray;
+    background-color: 005c5f;
   }
 
   .subitem:hover{
-    background-color: rgb(167, 167, 167);
-    border: thin solid gray;
-
+    background-color: 005c5f;
   }
 
 .item:hover .submenu {
@@ -204,12 +252,6 @@ body{
     margin-left: 30px;
     margin-right: 30px;
 }
-
-
-
-
-
-
 
 
 
