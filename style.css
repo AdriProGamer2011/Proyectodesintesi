@@ -1,15 +1,23 @@
 
 
+* {
+    margin: 0;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+.fondo {
+    background-color: #088484;
+    text-align: center;
+}
+
+body{
+    padding: 0%;
+   }
 
 
 
 
-
-
-
-
-
-   
 
 
    @import url("https://fonts.googleapis.com/css?family=Roboto:500,600");
@@ -35,29 +43,43 @@
        text-transform: uppercase;
        cursor: pointer;
        position: relative;
+       left:540px;
+       background-color: #088484;
+       z-index: 99;
+       border: white 1px solid;
    }
-   
+  
    .btn i {
        font-size: 1.2em;
        border-radius: 100%;
-       animation: ripple 0.6s linear infinite;
+       animation: ripple 2s linear infinite;
+       z-index: 1;
+       
+      
    }
    
    @keyframes ripple {
        0% {
            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.1);
-           box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.1);
-           box-shadow: 0 0 0 40px rgba(255, 255, 255, 0.1);
-           box-shadow: 0 0 0 60px rgba(255, 255, 255, 0.1);
+           box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+           box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+           box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.1);
        }
+
+       50% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.1);
+        box-shadow: -220px 0 0 1px rgba(255, 255, 255, 0.1);
+        box-shadow: -230px 0 0 2px rgba(255, 255, 255, 0.1);
+        box-shadow: -240px 0 0 8px rgba(255, 255, 255, 0.1);
+        box-shadow: -250px 0 0 11px rgba(255, 255, 255, 0.1);
+        }
    
        100% {
-           box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.1);
-           box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.1);
-           box-shadow: 0 0 0 40px rgba(255, 255, 255, 0.1);
-           box-shadow: 0 0 0 60px rgba(255, 255, 255, 0.1);
-           box-shadow: 0 0 0 80px rgba(255, 255, 255, 0.1);
-       }
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.1);
+        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+        box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.1);
+    }
    }
    
    .dropdown {
@@ -73,6 +95,8 @@
        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
        text-align: left;
        transition: 0.3 ease;
+       z-index: 9999;
+    
    }
    
    .dropdown::before {
@@ -110,6 +134,7 @@
        font-weight: 500;
        text-decoration: none;
    }
+
    
    .dropdown {
        opacity: 0;
@@ -124,9 +149,9 @@
    
    }
    
+
    
-
-
+   
 
 
 
@@ -151,11 +176,11 @@
   
   #menu-arriba {
     position: relative;
-    z-index: 99999999999999999999;
+    z-index: 9;
     display: grid;
     font: small-caps 400%/200% serif;
     background-color: 088484;
-    border: white 1px solid;
+  
   }
   
 
@@ -189,7 +214,7 @@
   
 .subitem{
     background-color: white; 
-    z-index: 9999999999;    
+    z-index: 8;    
     padding: 1em;
    
 }
@@ -199,7 +224,7 @@
   
   #menu {
     position: sticky;
-    z-index: 9999999999;
+    z-index: 8;
     font-size: 0.99em;
     background-color: #088484;
     position: sticky;
@@ -207,7 +232,8 @@
     bottom: 0;
     left: 0;
     right: 0;
-    border: white 1px solid;
+    border: white 0.1px solid;
+    
   }
 
 
@@ -245,7 +271,7 @@
 
 .item:hover .submenu {
     font: bold 90% monospace;
-    z-index: 99999999999;
+    z-index: 8;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     width: 100%;
@@ -256,7 +282,9 @@
 
 
 
-
+#Logos-principio {
+    background-color: white;
+}
 
 
 
