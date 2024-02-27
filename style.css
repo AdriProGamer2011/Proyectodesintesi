@@ -23,10 +23,11 @@ body{
     z-index: 9;
     display: grid;
     font: small-caps 400%/200% serif;
-    background-color: 088484;
+    background-color: #088484;
   
   }
 
-    .adri {
+  .ul {
     background-color: #088484;
+
   }
