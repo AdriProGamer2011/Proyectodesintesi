@@ -29,6 +29,5 @@ body{
   ul {
     background-color: #088484;
     list-style:none;
-    border: solid 0.1px white;
-
+    border: solid 0.1px red;
   }
