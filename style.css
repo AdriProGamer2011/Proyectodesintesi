@@ -28,7 +28,6 @@ body{
 
   ul {
     background-color: #088484;
-  }
-  adri ul li {
-    text-decoration: none;
+    list-style:none;
+
   }
