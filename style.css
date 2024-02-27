@@ -22,12 +22,13 @@ body{
     display: grid;
     font: small-caps 400%/200% serif;
     background-color: #088484;
-    border: solid 0.1px white;
+    border-top: solid 0.1px white;
+    border-bottom: solid 0.1px white;
   
   }
 
   ul {
     background-color: #088484;
     list-style:none;
-    border: solid 0.1px red;
+    border-top: solid 0.1px white;
   }
