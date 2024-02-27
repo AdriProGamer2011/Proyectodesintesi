@@ -29,6 +29,6 @@ body{
   ul {
     background-color: #088484;
   }
-  ul li {
+  ul li a {
     text-decoration: none;
   }
