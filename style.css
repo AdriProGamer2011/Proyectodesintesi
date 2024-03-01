@@ -41,7 +41,11 @@ body{
 
   }
 
-  adri {
+  .adri {
     background-color: #088484;
 
+  }
+  .redireccion {
+    background-color: #088484;
+    color: black;
   }
