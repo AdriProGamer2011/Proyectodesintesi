@@ -29,6 +29,7 @@ body{
   ul {
     list-style:none;
     border-top: solid 0.1px white;
+    display: inline;
   }
  
 
