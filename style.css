@@ -27,11 +27,11 @@ body{
   }
 
   ul {
-    background-color: #088484;
     list-style:none;
     border-top: solid 0.1px white;
     color: black;
     display: inline;
+    background-color: #088484;
   }
  
 
