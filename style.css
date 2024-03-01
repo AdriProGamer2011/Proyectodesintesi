@@ -26,7 +26,18 @@ body{
   
   }
 
+  ul {
+    list-style:none;
+    border-top: solid 0.1px white;
+    display: inline;
+  }
  
+
+  ul li a {
+    color: white;
+    text-decoration: none;
+
+  }
   .redireccion {
     background-color: #088484;
     text-align: center;
@@ -35,5 +46,23 @@ body{
   }
 
   .redireccion li {
-
+    display: inline;
   }
+
+  .redireccion ul li {
+    font-family: Arial;
+    font-size: 1em;
+    font-style: none;
+    color: #ffffff;
+    padding: 8px;
+    text-decoration: none;
+}
+
+.redireccion ul li:link{
+    background-color: #334a94;
+    color: #ffffff;
+}
+
+.redireccion ul li:hover{
+    background-color: #786ed4;
+}
