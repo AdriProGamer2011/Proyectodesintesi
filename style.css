@@ -26,20 +26,14 @@ body{
   
   }
 
-  ul {
-    list-style:none;
-    border-top: solid 0.1px white;
-    display: inline;
-  }
  
-
-  ul li a {
-    color: white;
-    text-decoration: none;
-
-  }
   .redireccion {
     background-color: #088484;
     text-align: center;
-   
+    width: 100%;
+    float: left;
+  }
+
+  .redireccion li {
+
   }
