@@ -54,15 +54,15 @@ body{
     font-size: 1em;
     font-style: none;
     color: #ffffff;
-    padding: 8px;
+    padding: 11px;
     text-decoration: none;
 }
 
 .redireccion ul li:link{
-    background-color: #334a94;
+    background-color: #088484;
     color: #ffffff;
 }
 
 .redireccion ul li:hover{
-    background-color: #786ed4;
+    background-color: #088484;
 }
