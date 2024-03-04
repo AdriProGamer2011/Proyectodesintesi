@@ -39,10 +39,12 @@ body{
 
   }
   .redireccion {
+    position: relative;
     background-color: #088484;
     text-align: center;
     width: 100%;
     float: left;
+    height: 30px;
   }
 
   .redireccion li {
