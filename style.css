@@ -59,10 +59,10 @@ body{
 }
 
 .redireccion ul li:link{
-    background-color: #ffffff;
+    background-color: #088484;
     color: #ffffff;
 }
 
 .redireccion ul li:hover{
-    background-color: #088484;
+    background-color: #ffffff;
 }
