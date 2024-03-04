@@ -59,8 +59,9 @@ body{
 }
 
 .redireccion ul li:link{
-    background-color: #088484;
-    color: #ffffff;
+  background-color: #088484;
+  color: #ffffff;
+  width: 1px;
 }
 
 .redireccion ul li:hover{
