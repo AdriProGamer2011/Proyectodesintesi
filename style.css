@@ -54,7 +54,7 @@ body{
     font-size: 1em;
     font-style: none;
     color: #ffffff;
-    padding: 8px;
+    padding: 11px;
     text-decoration: none;
 }
 
@@ -65,4 +65,5 @@ body{
 
 .redireccion ul li:hover{
   background-color: #088484;
+  width: 1px;
 }
