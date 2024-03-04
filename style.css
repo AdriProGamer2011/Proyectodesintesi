@@ -87,4 +87,5 @@ body{
   word-spacing: 1vh;
   position: absolute;
   display: flex;
+  padding: 0.5vw;
 }
