@@ -45,6 +45,7 @@ body{
     width: 100%;
     float: left;
     height: 30px;
+    margin-top: 15px;
   }
 
   .redireccion li {
