@@ -82,3 +82,9 @@ body{
 .redireccion ul {
   padding: 3em;
 }
+
+.whatthefuck {
+  word-spacing: 1vh;
+  position: absolute;
+  display: flex;
+}
