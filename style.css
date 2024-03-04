@@ -64,10 +64,13 @@ body{
 .redireccion ul li:link{
   background-color: #088484;
   color: #ffffff;
-  margin-top: 15px;
 }
 
 .redireccion ul li:hover{
   background-color: #088484;
   width: 1px;
+}
+
+.redireccion ul li a {
+  margin-top: 10px;
 }
