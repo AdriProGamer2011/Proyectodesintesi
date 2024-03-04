@@ -64,5 +64,6 @@ body{
 }
 
 .redireccion ul li:hover{
-    background-color: #ffffff;
+  background-color: #088484;
+  width: 1em;
 }
