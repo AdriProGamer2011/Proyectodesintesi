@@ -10,8 +10,35 @@
             THERMUSIC
             </div>
         </div>
-        
         <adri></adri>
+
+        <div class="codigo">
+            <div class="">#define MIN_DISTANCIA 30</div>
+
+            <div class="">/* https://www.luisllamas.es/reproducir-sonidos-arduino-buzzer-pasivo-altavoz/ */</div>
+
+            <div class="">echo = 9; // Pin para echo
+            int trigger = 10; // Pin para trigger
+            int speaker = 11; // Pin para el buzzer unsigned long tiempoRespuesta; unsigned long distancia; float freqRad; int tono;</div>
+
+            <div class=""> void setup() { pinMode(speaker, OUTPUT);
+            pinMode(trigger, OUTPUT);
+            pinMode(echo, INPUT);</div>
+
+            <div class=""> //Begin Serial communication at a baudrate of 9600: Serial.begin(9600); }</div>
+
+            <div class="">void loop() { digitalWrite(trigger, HIGH); // Enviamos pulso de 10 microsegundos delayMicroseconds(10);
+            digitalWrite(trigger, LOW);
+            tiempoRespuesta = pulseIn(echo, HIGH); // Y esperamos pulso de vuelta distancia = tiempoRespuesta/58; // Calculo de distancia en cm</div>
+
+            <div class="">if (distancia < MIN_DISTANCIA) { freqRad = sin(distancia(3.14/180)); // Pasamos frecuencia a radianes tono = 2000+(int(freqRad1000)); // calculamos el tono
+            tone(speaker, tono, 500); }</div>
+
+            <div class="">// Print the distance on the Serial Monitor (Ctrl+Shift+M): Serial.print(“Distance = “); Serial.print(distancia); Serial.println(“ cm”);
+
+            }</div>
+            
+        
 
             
     </body>

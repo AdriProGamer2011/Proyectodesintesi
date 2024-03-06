@@ -94,6 +94,7 @@ body{
 }
 
 .codigo div {
-  position: relative;
-  margin-top: 1000px;
+  position: absolute;
+  margin-top: 50px;
+  margin-bottom: 3px;
 }
