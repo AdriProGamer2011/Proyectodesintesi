@@ -92,3 +92,8 @@ body{
   margin-right: 15px;
   margin-right: 15px;
 }
+
+.codigo div {
+  position: relative;
+  display: center;
+}
