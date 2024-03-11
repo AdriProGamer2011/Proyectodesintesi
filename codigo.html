@@ -13,103 +13,103 @@
         <adri></adri>
 
         <div class="codigo">
-            <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">/*                                                                                                                                                                                                                                                </span>
-<span style="color: #888888"> 1 - Arduino pin ~9</span>
-<span style="color: #888888"> 2 - Speaker +</span>
-<span style="color: #888888"> 3 - GND</span>
-<span style="color: #888888">   4 - 5V</span>
-<span style="color: #888888"> 5 - Arduino pin ~10</span>
-<span style="color: #888888"> 6 - Arduino pin 13</span>
-<span style="color: #888888"> 7 - Arduino pin ~11 </span>
-<span style="color: #888888">   8 - GND</span>
-<span style="color: #888888">*/</span>
+            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">/*                                                                                                                                                                                                                                                </span>
+            <span style="color: #888888"> 1 - Arduino pin ~9</span>
+            <span style="color: #888888"> 2 - Speaker +</span>
+            <span style="color: #888888"> 3 - GND</span>
+            <span style="color: #888888">   4 - 5V</span>
+            <span style="color: #888888"> 5 - Arduino pin ~10</span>
+            <span style="color: #888888"> 6 - Arduino pin 13</span>
+            <span style="color: #888888"> 7 - Arduino pin ~11 </span>
+            <span style="color: #888888">   8 - GND</span>
+            <span style="color: #888888">*/</span>
 
-<span style="color: #557799">#include   &lt;NewTone.h&gt;</span>
-<span style="color: #557799">#include &lt;NewPing.h&gt;</span>
-<span style="color: #557799">#include &lt;SPI.h&gt;</span>
+            <span style="color: #557799">#include   &lt;NewTone.h&gt;</span>
+            <span style="color: #557799">#include &lt;NewPing.h&gt;</span>
+            <span style="color: #557799">#include &lt;SPI.h&gt;</span>
 
-<span style="color: #557799">#define MIN_DISTANCE   35 </span>
+            <span style="color: #557799">#define MIN_DISTANCE   35 </span>
 
-NewPing <span style="color: #0066BB; font-weight: bold">sonar</span>(<span style="color: #0000DD; font-weight: bold">5</span>, <span style="color: #0000DD; font-weight: bold">6</span>, <span style="color: #0000DD; font-weight: bold">35</span>); 
+            NewPing <span style="color: #0066BB; font-weight: bold">sonar</span>(<span style="color: #0000DD; font-weight: bold">5</span>, <span style="color: #0000DD; font-weight: bold">6</span>, <span style="color: #0000DD; font-weight: bold">35</span>); 
 
 
-byte   address <span style="color: #333333">=</span> <span style="color: #005588; font-weight: bold">0x00</span>;
-<span style="color: #333399; font-weight: bold">int</span> CS<span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">10</span>;
+            byte   address <span style="color: #333333">=</span> <span style="color: #005588; font-weight: bold">0x00</span>;
+            <span style="color: #333399; font-weight: bold">int</span> CS<span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">10</span>;
 
-<span style="color: #333399; font-weight: bold">int</span> echo <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">3</span>;                            
-<span style="color: #333399; font-weight: bold">int</span>   trigger <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">4</span>;
+            <span style="color: #333399; font-weight: bold">int</span> echo <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">3</span>;                            
+            <span style="color: #333399; font-weight: bold">int</span>   trigger <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">4</span>;
 
-<span style="color: #333399; font-weight: bold">int</span> distance;
-<span style="color: #333399; font-weight: bold">int</span> PotValue;
+            <span style="color: #333399; font-weight: bold">int</span> distance;
+            <span style="color: #333399; font-weight: bold">int</span> PotValue;
 
-<span style="color: #333399; font-weight: bold">unsigned</span> <span style="color: #333399; font-weight: bold">long</span> TimeResponse;
-<span style="color: #333399; font-weight: bold">float</span>   distance2;
-<span style="color: #333399; font-weight: bold">float</span> tone1;
+            <span style="color: #333399; font-weight: bold">unsigned</span> <span style="color: #333399; font-weight: bold">long</span> TimeResponse;
+            <span style="color: #333399; font-weight: bold">float</span>   distance2;
+            <span style="color: #333399; font-weight: bold">float</span> tone1;
 
-<span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">setup</span>() {
-  Serial.begin(<span style="color: #0000DD; font-weight: bold">9600</span>);   
-  pinMode(trigger, OUTPUT);                     
-  pinMode(echo,   INPUT);   
-  pinMode (CS, OUTPUT);
-  SPI.begin();
+            <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">setup</span>() {
+            Serial.begin(<span style="color: #0000DD; font-weight: bold">9600</span>);   
+            pinMode(trigger, OUTPUT);                     
+            pinMode(echo,   INPUT);   
+            pinMode (CS, OUTPUT);
+            SPI.begin();
 
-   
-  digitalPotWrite(<span style="color: #0000DD; font-weight: bold">255</span>);
-   
-  <span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> i <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">50</span>; i <span style="color: #333333">&lt;=</span> <span style="color: #0000DD; font-weight: bold">400</span>; i<span style="color: #333333">++</span>)
-  {
-    pinMode(<span style="color: #0000DD; font-weight: bold">9</span>, OUTPUT);
-    NewTone(<span style="color: #0000DD; font-weight: bold">9</span>,i);
-     delay(<span style="color: #0000DD; font-weight: bold">10</span>);
-  }
-  
-  delay(<span style="color: #0000DD; font-weight: bold">500</span>);
-  
-  <span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> i <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">400</span>; i <span style="color: #333333">&gt;=</span> <span style="color: #0000DD; font-weight: bold">50</span>;   i<span style="color: #333333">--</span>)
-  {
-    pinMode(<span style="color: #0000DD; font-weight: bold">9</span>, OUTPUT);
-    NewTone(<span style="color: #0000DD; font-weight: bold">9</span>,i);
-    delay(<span style="color: #0000DD; font-weight: bold">10</span>);
-   } 
-}
+            
+            digitalPotWrite(<span style="color: #0000DD; font-weight: bold">255</span>);
+            
+            <span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> i <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">50</span>; i <span style="color: #333333">&lt;=</span> <span style="color: #0000DD; font-weight: bold">400</span>; i<span style="color: #333333">++</span>)
+            {
+                pinMode(<span style="color: #0000DD; font-weight: bold">9</span>, OUTPUT);
+                NewTone(<span style="color: #0000DD; font-weight: bold">9</span>,i);
+                delay(<span style="color: #0000DD; font-weight: bold">10</span>);
+            }
+            
+            delay(<span style="color: #0000DD; font-weight: bold">500</span>);
+            
+            <span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> i <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">400</span>; i <span style="color: #333333">&gt;=</span> <span style="color: #0000DD; font-weight: bold">50</span>;   i<span style="color: #333333">--</span>)
+            {
+                pinMode(<span style="color: #0000DD; font-weight: bold">9</span>, OUTPUT);
+                NewTone(<span style="color: #0000DD; font-weight: bold">9</span>,i);
+                delay(<span style="color: #0000DD; font-weight: bold">10</span>);
+            } 
+            }
 
-<span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">loop</span>() {  
-  digitalWrite(trigger, HIGH);           
-   delayMicroseconds(<span style="color: #0000DD; font-weight: bold">10</span>);     
-   digitalWrite(trigger, LOW);                   
-  TimeResponse <span style="color: #333333">=</span> pulseIn(echo,   HIGH);  
-  distance2   <span style="color: #333333">=</span> TimeResponse<span style="color: #333333">/</span><span style="color: #0000DD; font-weight: bold">58</span>;  
+            <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">loop</span>() {  
+            digitalWrite(trigger, HIGH);           
+            delayMicroseconds(<span style="color: #0000DD; font-weight: bold">10</span>);     
+            digitalWrite(trigger, LOW);                   
+            TimeResponse <span style="color: #333333">=</span> pulseIn(echo,   HIGH);  
+            distance2   <span style="color: #333333">=</span> TimeResponse<span style="color: #333333">/</span><span style="color: #0000DD; font-weight: bold">58</span>;  
 
-  <span style="color: #008800; font-weight: bold">if</span> (distance2   <span style="color: #333333">&lt;</span> MIN_DISTANCE) {  
-     tone1 <span style="color: #333333">=</span> <span style="color: #6600EE; font-weight: bold">50.0</span><span style="color: #333333">*</span>pow(<span style="color: #0000DD; font-weight: bold">2</span>,(distance2<span style="color: #333333">/</span><span style="color: #6600EE; font-weight: bold">12.0</span>));  
-    pinMode(<span style="color: #0000DD; font-weight: bold">9</span>, OUTPUT);
-    NewTone(<span style="color: #0000DD; font-weight: bold">9</span>,tone1);
-  } <span style="color: #008800; font-weight: bold">else</span> {
-     pinMode(<span style="color: #0000DD; font-weight: bold">9</span>, OUTPUT); 
-    NewTone(<span style="color: #0000DD; font-weight: bold">9</span>,<span style="color: #0000DD; font-weight: bold">0</span>);
-  }
- 
-  distance <span style="color: #333333">=</span> sonar.ping_cm(); 
+            <span style="color: #008800; font-weight: bold">if</span> (distance2   <span style="color: #333333">&lt;</span> MIN_DISTANCE) {  
+                tone1 <span style="color: #333333">=</span> <span style="color: #6600EE; font-weight: bold">50.0</span><span style="color: #333333">*</span>pow(<span style="color: #0000DD; font-weight: bold">2</span>,(distance2<span style="color: #333333">/</span><span style="color: #6600EE; font-weight: bold">12.0</span>));  
+                pinMode(<span style="color: #0000DD; font-weight: bold">9</span>, OUTPUT);
+                NewTone(<span style="color: #0000DD; font-weight: bold">9</span>,tone1);
+            } <span style="color: #008800; font-weight: bold">else</span> {
+                pinMode(<span style="color: #0000DD; font-weight: bold">9</span>, OUTPUT); 
+                NewTone(<span style="color: #0000DD; font-weight: bold">9</span>,<span style="color: #0000DD; font-weight: bold">0</span>);
+            }
+            
+            distance <span style="color: #333333">=</span> sonar.ping_cm(); 
 
-  
-  <span style="color: #333399; font-weight: bold">int</span> PotValue <span style="color: #333333">=</span> map(distance, <span style="color: #0000DD; font-weight: bold">0</span>, <span style="color: #0000DD; font-weight: bold">35</span>, <span style="color: #0000DD; font-weight: bold">240</span>, <span style="color: #0000DD; font-weight: bold">255</span>);   
+            
+            <span style="color: #333399; font-weight: bold">int</span> PotValue <span style="color: #333333">=</span> map(distance, <span style="color: #0000DD; font-weight: bold">0</span>, <span style="color: #0000DD; font-weight: bold">35</span>, <span style="color: #0000DD; font-weight: bold">240</span>, <span style="color: #0000DD; font-weight: bold">255</span>);   
 
-  <span style="color: #008800; font-weight: bold">if</span> (distance <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">0</span>)
-  {
-    PotValue   <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">255</span>;
-  }
+            <span style="color: #008800; font-weight: bold">if</span> (distance <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">0</span>)
+            {
+                PotValue   <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">255</span>;
+            }
 
-  digitalPotWrite(PotValue);
-  delay(<span style="color: #0000DD; font-weight: bold">10</span>);  
-}
+            digitalPotWrite(PotValue);
+            delay(<span style="color: #0000DD; font-weight: bold">10</span>);  
+            }
 
-<span style="color: #333399; font-weight: bold">int</span>   <span style="color: #0066BB; font-weight: bold">digitalPotWrite</span>(<span style="color: #333399; font-weight: bold">int</span> value) {
-  digitalWrite(CS, LOW); 
-  SPI.transfer(address);
-   SPI.transfer(value);
-  digitalWrite(CS, HIGH);
-}
-</pre></div>
+            <span style="color: #333399; font-weight: bold">int</span>   <span style="color: #0066BB; font-weight: bold">digitalPotWrite</span>(<span style="color: #333399; font-weight: bold">int</span> value) {
+            digitalWrite(CS, LOW); 
+            SPI.transfer(address);
+            SPI.transfer(value);
+            digitalWrite(CS, HIGH);
+            }
+            </pre></div>
 
         </div>
             
