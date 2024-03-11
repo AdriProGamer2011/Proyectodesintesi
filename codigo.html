@@ -13,103 +13,90 @@
         <adri></adri>
 
         <div class="codigo">
-            <div style="background: #ffffff; overflow:auto;width:35%;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">/*                                                                                                                                                                                                                                                </span>
-            <span style="color: #888888"> 1 - Arduino pin ~9</span>
-            <span style="color: #888888"> 2 - Speaker +</span>
-            <span style="color: #888888"> 3 - GND</span>
-            <span style="color: #888888">   4 - 5V</span>
-            <span style="color: #888888"> 5 - Arduino pin ~10</span>
-            <span style="color: #888888"> 6 - Arduino pin 13</span>
-            <span style="color: #888888"> 7 - Arduino pin ~11 </span>
-            <span style="color: #888888">   8 - GND</span>
-            <span style="color: #888888">*/</span>
+            <div style="background: #ffffff; overflow:auto;width:35%;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #557799">#define MIN_DISTANCIA 30</span>
+            <span style="color: #557799">#define FRECUENCIA_ADDED 500</span>
 
-            <span style="color: #557799">#include   &lt;NewTone.h&gt;</span>
-            <span style="color: #557799">#include &lt;NewPing.h&gt;</span>
-            <span style="color: #557799">#include &lt;SPI.h&gt;</span>
+            <span style="color: #888888">/* https://www.luisllamas.es/reproducir-sonidos-arduino-buzzer-pasivo-altavoz/ */</span>
 
-            <span style="color: #557799">#define MIN_DISTANCE   35 </span>
-
-            NewPing <span style="color: #0066BB; font-weight: bold">sonar</span>(<span style="color: #0000DD; font-weight: bold">5</span>, <span style="color: #0000DD; font-weight: bold">6</span>, <span style="color: #0000DD; font-weight: bold">35</span>); 
+            <span style="color: #333399; font-weight: bold">int</span> echoSensor1 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">9</span>; <span style="color: #888888">// Pin para echo</span>
+            <span style="color: #333399; font-weight: bold">int</span> triggerSensor1 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">10</span>; <span style="color: #888888">// Pin para trigger</span>
+            <span style="color: #333399; font-weight: bold">int</span> speaker <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">11</span>; <span style="color: #888888">// Pin para el buzzer unsigned long tiempoRespuesta; unsigned long distancia; float freqRad; int tono;</span>
 
 
-            byte   address <span style="color: #333333">=</span> <span style="color: #005588; font-weight: bold">0x00</span>;
-            <span style="color: #333399; font-weight: bold">int</span> CS<span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">10</span>;
+            <span style="color: #333399; font-weight: bold">int</span> echoSensor2 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">5</span>; <span style="color: #888888">// Pin para echo</span>
+            <span style="color: #333399; font-weight: bold">int</span> triggerSensor2 <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">4</span>; <span style="color: #888888">// Pin para trigger</span>
+            <span style="color: #333399; font-weight: bold">int</span> tonoSensor1;
+            <span style="color: #333399; font-weight: bold">int</span> tonoSensor2;
+            <span style="color: #333399; font-weight: bold">int</span> distanciaSensor1;
+            <span style="color: #333399; font-weight: bold">int</span> distanciaSensor2;
+            <span style="color: #333399; font-weight: bold">int</span> tiempoRespuestaSensor1;
+            <span style="color: #333399; font-weight: bold">int</span> tiempoRespuestaSensor2;
+            <span style="color: #333399; font-weight: bold">float</span> freqRadSensor1;
+            <span style="color: #333399; font-weight: bold">float</span> freqRadSensor2;
 
-            <span style="color: #333399; font-weight: bold">int</span> echo <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">3</span>;                            
-            <span style="color: #333399; font-weight: bold">int</span>   trigger <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">4</span>;
 
-            <span style="color: #333399; font-weight: bold">int</span> distance;
-            <span style="color: #333399; font-weight: bold">int</span> PotValue;
+            <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">setup</span>() { 
+            pinMode(speaker, OUTPUT);
+            pinMode(triggerSensor1, OUTPUT);
+            pinMode(echoSensor1, INPUT);
+            pinMode(triggerSensor2, OUTPUT);
+            pinMode(echoSensor2, INPUT);
 
-            <span style="color: #333399; font-weight: bold">unsigned</span> <span style="color: #333399; font-weight: bold">long</span> TimeResponse;
-            <span style="color: #333399; font-weight: bold">float</span>   distance2;
-            <span style="color: #333399; font-weight: bold">float</span> tone1;
-
-            <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">setup</span>() {
-            Serial.begin(<span style="color: #0000DD; font-weight: bold">9600</span>);   
-            pinMode(trigger, OUTPUT);                     
-            pinMode(echo,   INPUT);   
-            pinMode (CS, OUTPUT);
-            SPI.begin();
-
-            
-            digitalPotWrite(<span style="color: #0000DD; font-weight: bold">255</span>);
-            
-            <span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> i <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">50</span>; i <span style="color: #333333">&lt;=</span> <span style="color: #0000DD; font-weight: bold">400</span>; i<span style="color: #333333">++</span>)
-            {
-                pinMode(<span style="color: #0000DD; font-weight: bold">9</span>, OUTPUT);
-                NewTone(<span style="color: #0000DD; font-weight: bold">9</span>,i);
-                delay(<span style="color: #0000DD; font-weight: bold">10</span>);
-            }
-            
-            delay(<span style="color: #0000DD; font-weight: bold">500</span>);
-            
-            <span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> i <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">400</span>; i <span style="color: #333333">&gt;=</span> <span style="color: #0000DD; font-weight: bold">50</span>;   i<span style="color: #333333">--</span>)
-            {
-                pinMode(<span style="color: #0000DD; font-weight: bold">9</span>, OUTPUT);
-                NewTone(<span style="color: #0000DD; font-weight: bold">9</span>,i);
-                delay(<span style="color: #0000DD; font-weight: bold">10</span>);
-            } 
+            <span style="color: #888888">// Begin Serial communication at a baudrate of 9600: </span>
+            Serial.begin(<span style="color: #0000DD; font-weight: bold">9600</span>); 
             }
 
-            <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">loop</span>() {  
-            digitalWrite(trigger, HIGH);           
-            delayMicroseconds(<span style="color: #0000DD; font-weight: bold">10</span>);     
-            digitalWrite(trigger, LOW);                   
-            TimeResponse <span style="color: #333333">=</span> pulseIn(echo,   HIGH);  
-            distance2   <span style="color: #333333">=</span> TimeResponse<span style="color: #333333">/</span><span style="color: #0000DD; font-weight: bold">58</span>;  
+            <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">loop</span>() { 
 
-            <span style="color: #008800; font-weight: bold">if</span> (distance2   <span style="color: #333333">&lt;</span> MIN_DISTANCE) {  
-                tone1 <span style="color: #333333">=</span> <span style="color: #6600EE; font-weight: bold">50.0</span><span style="color: #333333">*</span>pow(<span style="color: #0000DD; font-weight: bold">2</span>,(distance2<span style="color: #333333">/</span><span style="color: #6600EE; font-weight: bold">12.0</span>));  
-                pinMode(<span style="color: #0000DD; font-weight: bold">9</span>, OUTPUT);
-                NewTone(<span style="color: #0000DD; font-weight: bold">9</span>,tone1);
-            } <span style="color: #008800; font-weight: bold">else</span> {
-                pinMode(<span style="color: #0000DD; font-weight: bold">9</span>, OUTPUT); 
-                NewTone(<span style="color: #0000DD; font-weight: bold">9</span>,<span style="color: #0000DD; font-weight: bold">0</span>);
+            <span style="color: #888888">// SENSOR1</span>
+            digitalWrite(triggerSensor1, HIGH); <span style="color: #888888">// Enviamos pulso de 10 microsegundos delayMicroseconds(10);</span>
+            digitalWrite(triggerSensor1, LOW);
+
+            tiempoRespuestaSensor1 <span style="color: #333333">=</span> pulseIn(echoSensor1, HIGH); <span style="color: #888888">// Y esperamos pulso de vuelta </span>
+            distanciaSensor1 <span style="color: #333333">=</span> tiempoRespuestaSensor1<span style="color: #333333">/</span><span style="color: #0000DD; font-weight: bold">58</span>; <span style="color: #888888">// Calculo de distancia en cm</span>
+
+            <span style="color: #008800; font-weight: bold">if</span> (distanciaSensor1 <span style="color: #333333">&lt;</span> MIN_DISTANCIA) { 
+                freqRadSensor1 <span style="color: #333333">=</span> sin(distanciaSensor1<span style="color: #333333">*</span>(<span style="color: #6600EE; font-weight: bold">3.14</span><span style="color: #333333">/</span><span style="color: #0000DD; font-weight: bold">180</span>)); <span style="color: #888888">// Pasamos frecuencia a radianes </span>
+                tonoSensor1 <span style="color: #333333">=</span> (<span style="color: #333399; font-weight: bold">int</span>(freqRadSensor1<span style="color: #333333">*</span><span style="color: #0000DD; font-weight: bold">1000</span>)); <span style="color: #888888">// calculamos el tono</span>
+                <span style="color: #888888">// tone(speaker, tonoSensor1); </span>
+
             }
+
+            <span style="color: #888888">// SENSOR2</span>
+            digitalWrite(triggerSensor2, HIGH); <span style="color: #888888">// Enviamos pulso de 10 microsegundos delayMicroseconds(10);</span>
+            digitalWrite(triggerSensor2, LOW);
             
-            distance <span style="color: #333333">=</span> sonar.ping_cm(); 
+            tiempoRespuestaSensor2 <span style="color: #333333">=</span> pulseIn(echoSensor2, HIGH); <span style="color: #888888">// Y esperamos pulso de vuelta </span>
+            distanciaSensor2 <span style="color: #333333">=</span> tiempoRespuestaSensor2<span style="color: #333333">/</span><span style="color: #0000DD; font-weight: bold">58</span>; <span style="color: #888888">// Calculo de distancia en cm</span>
 
-            
-            <span style="color: #333399; font-weight: bold">int</span> PotValue <span style="color: #333333">=</span> map(distance, <span style="color: #0000DD; font-weight: bold">0</span>, <span style="color: #0000DD; font-weight: bold">35</span>, <span style="color: #0000DD; font-weight: bold">240</span>, <span style="color: #0000DD; font-weight: bold">255</span>);   
-
-            <span style="color: #008800; font-weight: bold">if</span> (distance <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">0</span>)
-            {
-                PotValue   <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">255</span>;
+            <span style="color: #008800; font-weight: bold">if</span> (distanciaSensor2 <span style="color: #333333">&lt;</span> MIN_DISTANCIA) { 
+                freqRadSensor2 <span style="color: #333333">=</span> sin(distanciaSensor2<span style="color: #333333">*</span>(<span style="color: #6600EE; font-weight: bold">3.14</span><span style="color: #333333">/</span><span style="color: #0000DD; font-weight: bold">180</span>)); <span style="color: #888888">// Pasamos frecuencia a radianes </span>
+                tonoSensor2 <span style="color: #333333">=</span> (<span style="color: #333399; font-weight: bold">int</span>(freqRadSensor2<span style="color: #333333">*</span><span style="color: #0000DD; font-weight: bold">1000</span>)); <span style="color: #888888">// calculamos el tono</span>
+                <span style="color: #888888">// tone(speaker, tonoSensor2); </span>
             }
 
-            digitalPotWrite(PotValue);
-            delay(<span style="color: #0000DD; font-weight: bold">10</span>);  
-            }
+            tone(speaker, tonoSensor1<span style="color: #333333">+</span>tonoSensor2<span style="color: #333333">+</span>FRECUENCIA_ADDED); 
 
-            <span style="color: #333399; font-weight: bold">int</span>   <span style="color: #0066BB; font-weight: bold">digitalPotWrite</span>(<span style="color: #333399; font-weight: bold">int</span> value) {
-            digitalWrite(CS, LOW); 
-            SPI.transfer(address);
-            SPI.transfer(value);
-            digitalWrite(CS, HIGH);
+            <span style="color: #888888">// Print the distance on the Serial Monitor (Ctrl+Shift+M): </span>
+            Serial.print(<span style="background-color: #fff0f0">&quot;DistanceSensor1 = &quot;</span>); 
+            Serial.print(distanciaSensor1); 
+            Serial.println(<span style="background-color: #fff0f0">&quot; cm&quot;</span>);
+
+            Serial.print(<span style="background-color: #fff0f0">&quot;DistanceSensor2 = &quot;</span>); 
+            Serial.print(distanciaSensor2); 
+            Serial.println(<span style="background-color: #fff0f0">&quot; cm&quot;</span>);
+
+            Serial.print(<span style="background-color: #fff0f0">&quot;TonoSensor1 = &quot;</span>); 
+            Serial.print(tonoSensor1); 
+            Serial.println(<span style="background-color: #fff0f0">&quot; Hz&quot;</span>);
+
+            Serial.print(<span style="background-color: #fff0f0">&quot;TonoSensor2 = &quot;</span>); 
+            Serial.print(tonoSensor2); 
+            Serial.println(<span style="background-color: #fff0f0">&quot; Hz&quot;</span>);
+
             }
             </pre></div>
+
 
         </div>
             
