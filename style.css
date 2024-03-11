@@ -39,6 +39,7 @@ body{
 
   }
   .redireccion {
+  position: sticky;
   background-color: #088484;
   text-align: center;
   width: 100%;
