@@ -40,15 +40,16 @@ body{
   }
   .redireccion {
   position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-color: #088484;
   text-align: center;
   width: 100%;
   height: 30px;
   margin-bottom: 1px;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  
   }
 
   .redireccion li {
