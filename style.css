@@ -90,12 +90,16 @@ body{
   z-index: 2;
 }
 
-.codigo p {
-  margin-right: 15px;
-  margin-right: 15px;
-}
 
 .codigo div {
   position: relative;
   margin-top: 55px;
+  z-index: 2;
+}
+.codigo span {
+  z-index: 2;
+}
+
+.codigo p {
+  z-index: 2;
 }
