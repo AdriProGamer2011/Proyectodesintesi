@@ -15,7 +15,7 @@ body{
     padding: 0%;
     text-decoration: none;
 
-   }
+}
 
 header{
   max-width: 100%;
@@ -26,22 +26,37 @@ header{
   background-size: cover;
   background-attachment: fixed;
   position: relative;
+
 }
+nav {
+  text-align: right;
+  padding: 30px 50px 0 0;
+}
+nav > a {
+color: #ffffff;
+font-weight: 300;
+text-decoration: none;
+margin-right: 10px;
 
+}
+nav > a:hover{
+  text-decoration: underline;
+  
+  }
 
-  ul {
+ul {
     list-style:none;
     border-top: solid 0.1px white;
     display: inline;
-  }
+}
  
 
-  ul li a {
+ul li a {
     color: white;
     text-decoration: none;
 
-  }
-  .redireccion {
+}
+.redireccion {
   position: sticky;
   top: 0;
   left: 0;
@@ -53,13 +68,13 @@ header{
   height: 30px;
   margin-bottom: 1px;
   z-index: 0;
-  }
+}
 
-  .redireccion li {
+.redireccion li {
     display: inline;
-  }
+}
 
-  .redireccion ul li {
+.redireccion ul li {
   font-family: Arial;
   font-size: 1em;
   font-style: none;
