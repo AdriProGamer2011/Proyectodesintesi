@@ -21,8 +21,8 @@ header{
   max-width: 100%;
   height: 600px;
   background: #000000;
-  background: -webkit-linear-gradient(to right, hsla(120, 95%, 50%, 0.692), hsla(0, 45%, 52%, 0.651)), url(/imagenes/apps.14931.13510798887551775.c10fff9d-ead5-4a16-aa9c-4e638842c0f4.png);
-  background: linear-gradient(to right, hsla(120, 95%, 50%, 0.692), hsla(0, 45%, 52%, 0.651)), url(/imagenes/apps.14931.13510798887551775.c10fff9d-ead5-4a16-aa9c-4e638842c0f4.png);
+  background: -webkit-linear-gradient(to right, hsla(120, 95%, 50%, 0.692), hsla(0, 45%, 52%, 0.651)), url(imagenes/apps.14931.13510798887551775.c10fff9d-ead5-4a16-aa9c-4e638842c0f4.png);
+  background: linear-gradient(to right, hsla(120, 95%, 50%, 0.692), hsla(0, 45%, 52%, 0.651)), url(imagenes/apps.14931.13510798887551775.c10fff9d-ead5-4a16-aa9c-4e638842c0f4.png);
   background-size: cover;
   background-attachment: fixed;
   position: relative;
