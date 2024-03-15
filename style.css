@@ -26,6 +26,7 @@ header{
   background-size: cover;
   background-attachment: fixed;
   position: relative;
+  text-decoration: none;
 
 }
 nav {
@@ -37,29 +38,30 @@ color: #ffffff;
 font-weight: 300;
 text-decoration: none;
 margin-right: 10px;
-
 }
+
 nav > a:hover{
   text-decoration: underline;
   
-  }
+}
+
+.olas{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+
 
 .codigo {
   word-spacing: 1vh;
   position: absolute;
-  z-index: 2;
+ 
 }
 
 
 .codigo div {
   position: relative;
   margin-top: 55px;
-  z-index: 2;
-}
-.codigo span {
-  z-index: 2;
-}
 
-.codigo p {
-  z-index: 2;
 }
