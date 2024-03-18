@@ -81,7 +81,7 @@ justify-content:flex-end;
 .redireccion ul li a{
 color: #fff;
 text-decoration: none;
-display: grid;
+display: block;
 grid-gap: 0;
 }
 
