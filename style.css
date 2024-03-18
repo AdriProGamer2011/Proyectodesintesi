@@ -56,13 +56,11 @@ color: #fff;
 
 .textos-header h1{
 font-size: 50px;
-color: fff;
 }
 
 .textos-header h3{
 font-size: 40px;
 font-weight: 300;
-color: fff;
 }
 
 .olas{
@@ -83,7 +81,8 @@ justify-content:flex-end;
 .redireccion ul li a{
 color: #fff;
 text-decoration: none;
-margin-left: 1px;
+display: grid;
+grid-gap: 0;
 }
 
 .redireccion> a:hover{
